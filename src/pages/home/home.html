@@ -1,0 +1,57 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title secondary class="title">Music Playing</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding no-border>
+
+
+  <ion-thumbnail center>
+
+    <img src="https://s-media-cache-ak0.pinimg.com/736x/15/48/a5/1548a52e570303e7bff5492dd1962c21.jpg">
+    <h2>My Neighbor Totoro</h2>
+    <p>Hayao Miyazaki • 1988</p>
+  </ion-thumbnail>
+
+  <audio-track #track dark [track]="singleTrack" (onFinish)="onTrackFinished($event)">
+    <audio-track-progress-bar dark duration progress [audioTrack]="track">
+    </audio-track-progress-bar>
+  </audio-track>
+
+  <ion-grid>
+    <ion-row center>
+      <ion-col><button ion-button icon-only clear>
+         <ion-icon name="folder-open"></ion-icon>
+    </button></ion-col>
+      <ion-col><button ion-button icon-only clear>
+        <ion-icon name="heart-outline"></ion-icon>
+    </button></ion-col>
+      <ion-col><button ion-button icon-only clear>
+         <ion-icon name="repeat"></ion-icon>
+    </button></ion-col>
+
+    </ion-row>
+    <ion-row center>
+      <ion-col>
+
+        <button ion-button icon-only clear >
+    <ion-icon name="skip-backward"></ion-icon>
+    </button>
+        <audio-track-play light [audioTrack]="track"></audio-track-play>
+        <button ion-button icon-only clear >
+         <ion-icon name="skip-forward"></ion-icon>
+    </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
